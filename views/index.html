@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBurger</title>
+</head>
+<body>  
+    <nav>
+        <h1>Bem-vindo ao DevBurger!</h1>
+    </nav>
+    <div class="content"></div>
+        <div class="cardapio">
+            <div class="image">
+                <img src="/imagens/burger-svgrepo-com.svg" alt="Imagem de hambúrgueres">
+            </div>
+        
+            <h2>Cardápio Digital</h2>
+            <p>Explore nosso cardápio digital e descubra os melhores hambúrgueres da cidade!</p>
+
+            <div class="menu">
+                <ul>
+                    <li><p>Divino podrão ---------------- R$15,00</p></li>
+                    <li><p>Cheddar bacon ---------------- R$30,00</p></li>
+                    <li><p>Veggie burger ---------------- R$27,90</p></li>
+                    <li><p>Frango crocante -------------- R$13,00</p></li>
+                    <li><p>Peixe frito ------------------ R$12,00</p></li>
+                    <li><p>Cogumelo grelhado ------------ R$10,00</p></li>
+                    <li><p>Batata rústica --------------- R$16,00</p></li>
+                    <li><p>Onion rings ------------------ R$22,00</p></li>
+                    <li><p>Hambúrguer de carne ---------- R$28,00</p></li>
+                    <li><p>Hambúrguer de frango --------- R$23,00</p></li>
+                    <li><p>Coca-cola 600ml -------------- R$7,00</p></li>
+                    <li><p>Água mineral 500ml ----------- R$3,00</p></li>
+                    <li><p>Suco natural 300ml ----------- R$10,00</p></li>
+                    <li><p>Refrigerante 350ml ----------- R$5,00</p></li>
+                    <li><p>Batata frita ----------------- R$22,00</p></li>
+                </ul>
+            </div>
+            <p>Você pode sugerir novos ingredientes para nossos hambúrgueres.</p>
+            <p>Preencha o formulário abaixo para enviar sua sugestão.</p>
+    </div>
+   <div class="container">
+        <div class="form-image">
+            <img src="/imagens/undraw_development_s4gv.svg" alt="Imagem de ideias">
+        </div>
+        <div class="form" id="form-receptor">
+            <form action ="/" method="POST" id="suggestion-form">
+                <div class="form-header">
+                    <div class="title">
+                        <h2>Formulário de Sugestão</h2>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                
+                    <div class="input-box">
+                        <label for="text">Opcão:</label>
+                        <input type="text" id="opcao" name="opcao" placeholder="Digite uma opção do cardápio" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="text">Ingredientes:</label>
+                        <input type="text" id="ingredientes" name="ingredientes" placeholder="Digite os ingredientes" required>
+                    </div>
+                    <div class="confirm-bottom">
+                    <button id="confirm" type="submit">Confirmar</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
