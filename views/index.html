@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <link rel="stylesheet" href="/css/style.css">
     <meta charset="UTF-8">
@@ -7,8 +7,13 @@
     <title>DevBurger</title>
 </head>
 <body>  
-    <nav>
+    <nav class = "nav">
         <h1>Bem-vindo ao DevBurger!</h1>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/contato">Contato</a></li>
+            <li><a href="/sugestao">Sugestão</a></li>
+        </ul>
     </nav>
     <div class="content"></div>
         <div class="cardapio">
@@ -21,21 +26,14 @@
 
             <div class="menu">
                 <ul>
-                    <li><p>Divino podrão ---------------- R$15,00</p></li>
-                    <li><p>Cheddar bacon ---------------- R$30,00</p></li>
-                    <li><p>Veggie burger ---------------- R$27,90</p></li>
-                    <li><p>Frango crocante -------------- R$13,00</p></li>
-                    <li><p>Peixe frito ------------------ R$12,00</p></li>
-                    <li><p>Cogumelo grelhado ------------ R$10,00</p></li>
-                    <li><p>Batata rústica --------------- R$16,00</p></li>
-                    <li><p>Onion rings ------------------ R$22,00</p></li>
-                    <li><p>Hambúrguer de carne ---------- R$28,00</p></li>
-                    <li><p>Hambúrguer de frango --------- R$23,00</p></li>
+                    <li><p>DevBurger Bacon ---------------- R$30,00</p></li>
+                    <li><p>DevBurger Veggie ---------------- R$27,90</p></li>
+                    <li><p>DevBurger Clássico -------------- R$13,00</p></li>
+                    <li><p>DevBurger Frango ---------------- R$23,00</p></li>
                     <li><p>Coca-cola 600ml -------------- R$7,00</p></li>
                     <li><p>Água mineral 500ml ----------- R$3,00</p></li>
                     <li><p>Suco natural 300ml ----------- R$10,00</p></li>
                     <li><p>Refrigerante 350ml ----------- R$5,00</p></li>
-                    <li><p>Batata frita ----------------- R$22,00</p></li>
                 </ul>
             </div>
             <p>Você pode sugerir novos ingredientes para nossos hambúrgueres.</p>
@@ -46,7 +44,7 @@
             <img src="/imagens/undraw_development_s4gv.svg" alt="Imagem de ideias">
         </div>
         <div class="form" id="form-receptor">
-            <form action ="/" method="POST" id="suggestion-form">
+            <form action ="/sugestao" method="POST" id="suggestion-form">
                 <div class="form-header">
                     <div class="title">
                         <h2>Formulário de Sugestão</h2>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBurger</title>
+</head>
+<body>  
+    <nav class = "nav">
+        <h1>Bem-vindo ao DevBurger!</h1>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="/contato">Contato</a></li>
+            <li><a href="/sugestao">Sugestão</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="cardapio">
+            <div class="image">
+                <img src="/imagens/burger-svgrepo-com.svg" alt="Imagem de hambúrgueres">
+            </div>
+        
+            <h2>Alguma dúvida? Envie-nos uma mensagem!</h2>
+            <p>Preencha o formulário abaixo com sua dúvida. </p>
+        </div>
+    </div>
+   <div class="container">
+        <div class="form-image">
+            <img src="/imagens/undraw_compose-email_s6kf.svg" alt="Imagem de ideias">
+        </div>
+        <div class="form" id="form-receptor">
+            <form action ="/contato" method="POST" id="suggestion-form">
+                <div class="form-header">
+                    <div class="title">
+                        <h2>Formulário de Contato</h2>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+                    </div>
+                
+                    <div class="input-box">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu E-mail" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="text">Mensagem:</label>
+                        <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required>
+                    </div>
+                    <div class="confirm-bottom">
+                    <button id="confirm" type="submit">Confirmar</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

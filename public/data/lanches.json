@@ -1,0 +1,74 @@
+{
+  "lanches": [
+    {
+      "id": 1,
+      "nome": "DevBurger Clássico",
+      "descricao": "Hambúrguer artesanal com carne bovina, queijo, alface, tomate e molho especial",
+      "preco": 25.90,
+      "categoria": "classico",
+      "ingredientes": ["carne bovina", "queijo", "alface", "tomate", "molho especial"],
+      "disponivel": true
+    },
+    {
+      "id": 2,
+      "nome": "DevBurger Bacon",
+      "descricao": "Hambúrguer com bacon crocante, queijo cheddar e cebola caramelizada",
+      "preco": 29.90,
+      "categoria": "premium",
+      "ingredientes": ["carne bovina", "bacon", "queijo cheddar", "cebola caramelizada"],
+      "disponivel": true
+    },
+    {
+      "id": 3,
+      "nome": "DevBurger Veggie",
+      "descricao": "Hambúrguer vegetariano com grão-de-bico, rúcula e tomate seco",
+      "preco": 23.90,
+      "categoria": "vegetariano",
+      "ingredientes": ["hambúrguer de grão-de-bico", "rúcula", "tomate seco", "molho vegano"],
+      "disponivel": true
+    },
+    {
+      "id": 4,
+      "nome": "DevBurger Frango",
+      "descricao": "Hambúrguer de frango grelhado com queijo, alface e maionese",
+      "preco": 24.90,
+      "categoria": "frango",
+      "ingredientes": ["frango grelhado", "queijo", "alface", "maionese"],
+      "disponivel": false
+    },
+    {
+        "id": 5,
+        "nome": "Água mineral 500ml",
+        "descricao": "água mineral natural",
+        "preco": 3.00,
+        "categoria": "classico",
+        "ingredientes": ["água mineral"],
+        "disponivel": true
+    },
+    {
+        "id": 6,
+        "nome": "Suco natural 300ml",
+        "descricao": "suco natural de laranja",
+        "preco": 10.00,
+        "categoria": "classico",
+        "ingredientes": ["suco de laranja"],
+        "disponivel": true
+    },
+    {
+        "id": 7,
+        "nome": "Refrigerante 350ml",
+        "descricao": "refrigerante sabor cola",
+        "preco": 5.00,
+        "categoria": "classico",
+        "ingredientes": ["água gaseificada", "açúcar", "corante", "aroma"],
+        "disponivel": true
+    }
+  ],
+  "categorias": [
+    { "id": 1, "nome": "classico", "descricao": "Sabores tradicionais" },
+    { "id": 2, "nome": "premium", "descricao": "Ingredientes especiais" },
+    { "id": 3, "nome": "vegetariano", "descricao": "Opções sem carne" },
+    { "id": 4, "nome": "frango", "descricao": "À base de frango" }
+  ]
+}
+

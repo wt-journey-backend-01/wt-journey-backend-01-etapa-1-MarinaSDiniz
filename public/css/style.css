@@ -28,13 +28,32 @@ nav {
     height: 60px;
     background-color: #f68a14;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 0;
     margin-bottom: 40px;
     color: white;
+    gap: 20px;
+    padding: 0 20px;
 }
 
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav ul li {
+    font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
 /*index.html*/
 
 /*cardapio*/
@@ -72,7 +91,7 @@ nav {
 
 .menu {
     text-decoration: none;
-    margin: solid 5px #f68a14;
+    border: solid 5px #f68a14;
     background-color: brown;
     color: white;
     padding: 3rem 3rem;
@@ -92,7 +111,6 @@ nav {
     width: 80%;
     height: 80vh;
     display: flex;
-    margin: solid 5px #f68a14;
     border-radius: 0 10px 10px 0;
     margin-bottom: 5rem;
     /*flex-direction: column;*/
