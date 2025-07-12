@@ -1,51 +1,55 @@
 <sup>Esse é um feedback gerado por IA, ele pode conter erros.</sup>
 
-Você tem 9 créditos restantes para usar o sistema de feedback AI.
+Você tem 8 créditos restantes para usar o sistema de feedback AI.
 
 # Feedback para MarinaSDiniz:
 
-Nota final: **41.1/100**
+Nota final: **62.7/100**
 
-# Olá, MarinaSDiniz! 🌟
+Olá, MarinaSDiniz! 🌟
 
-Primeiramente, quero parabenizá-la pelo seu esforço nesse desafio! 🥳 Apesar da nota, você fez um ótimo trabalho ao estruturar seu servidor Express.js e implementar várias rotas. Vamos juntos entender os pontos que precisam de atenção e como podemos corrigir isso para deixar seu código ainda melhor! 🚀
+Primeiramente, parabéns pelo seu esforço e pela nota que você alcançou! Uma pontuação de **62.7/100** é um ótimo começo, e é claro que você já tem uma boa base. Agora, vamos juntos analisar o seu código e entender o que podemos melhorar? 🚀
 
-## 🎉 Conquistas Bônus
+### 🔍 Análise de Causa Raiz
 
-Infelizmente, não identificamos conquistas bônus no seu código, mas isso é só um detalhe! Cada erro é uma oportunidade de aprendizado, e você está no caminho certo! 💪
+Vamos começar a investigar os pontos que precisam de atenção! Aqui estão algumas observações que fiz:
 
-## 🚧 Problemas que Geraram Descontos
+1. **Rota para a Página Inicial (`/`)**:
+   - O requisito menciona que deve haver dois campos de input do tipo texto com os atributos "name" como "nome" e "ingredientes". 
+   - **Causa:** No seu código, a rota `app.get('/')` está retornando um arquivo HTML estático (`index.html`), mas não sabemos o que tem dentro desse arquivo. Precisamos garantir que essa página contenha os campos de input mencionados. Se você ainda não implementou esses campos no HTML, essa é a primeira coisa a corrigir!
 
-### 1. Endpoint `/sugestao` não deve aceitar método POST
-Aqui, o problema pode estar na forma como a rota está configurada. Você definiu um endpoint para `POST`, mas a especificação pode requerer um método diferente, talvez um `GET` para enviar dados via query string. Vamos revisar isso e garantir que a rota esteja de acordo com o que foi solicitado!
+2. **Rota para Sugestões (`/sugestao`)**:
+   - O feedback diz que a rota não está exibindo o nome e os ingredientes enviados via query string na página HTML.
+   - **Causa:** Você já está recebendo esses dados, mas precisamos garantir que eles sejam exibidos corretamente na resposta. O que você fez parece estar certo, mas verifique se está acessando a variável correta e se o HTML está renderizando corretamente. Vamos verificar se a estrutura do HTML está realmente mostrando as informações.
 
-### 2. Static files: `.gitignore` não contém pasta `node_modules`
-Esse é um ponto importante. O `node_modules` deve ser ignorado em seu repositório para evitar que arquivos desnecessários sejam enviados. Verifique seu arquivo `.gitignore` e adicione `node_modules/` para manter seu repositório mais limpo! 📦
+3. **Rota de Contato (`/contato`)**:
+   - O requisito aponta que a rota deve conter um campo de input ou textarea do tipo texto com o atributo "name" como "mensagem".
+   - **Causa:** Assim como na rota inicial, precisamos garantir que o arquivo HTML da página de contato (`contato.html`) contenha esse campo. Se ele não existir, não conseguiremos processar a mensagem enviada.
 
-## 🔍 Requisitos que Precisam de Atenção
+4. **Resposta da Rota de Contato (POST)**:
+   - Você precisa exibir a "mensagem" enviada no formulário na página de resposta.
+   - **Causa:** Verifique se você está coletando a mensagem correta do `req.body` e inclua isso na resposta HTML que está sendo enviada após o contato. 
 
-Agora, vamos analisar os requisitos que não foram atendidos e entender as causas.
+5. **API de Lanches (`/api/lanches`)**:
+   - Aparentemente, os dados não estão com o tipo correto ou estão vazios.
+   - **Causa:** Isso pode estar relacionado ao arquivo `lanches.json`. Verifique se ele está no formato correto e se contém dados válidos. Se o arquivo estiver vazio ou com dados mal formatados, isso causará esse problema.
 
-### 1. Rota `/sugestao` deve retornar status code 200 com content-type HTML
-Ao processar a sugestão, você deve garantir que o código de status retornado é 200 e que o content-type é HTML. Isso pode ser ajustado na sua resposta, mudando o que você está enviando após o processamento.
+### 🚫 Problemas que Geraram Descontos
 
-### 2. Rota `/sugestao` deve exibir o nome e ingredientes enviados via query string
-Você precisa garantir que a resposta inclua o nome e os ingredientes na página de agradecimento. Para isso, considere enviar esses dados na URL como query parameters ou incluí-los na sua resposta.
+Agora, vamos aos pontos críticos que causaram descontos na sua nota:
 
-### 3. Rota `/sugestao` deve conter uma âncora para a rota raiz `/`
-É importante que sua página de agradecimento tenha um link que retorne ao início da aplicação. Isso melhora a navegação do usuário! Você pode adicionar um elemento `<a href="/">Voltar para a página inicial</a>` na sua página de resposta.
+1. **Endpoint `/sugestao` não deve aceitar método POST**:
+   - Aqui você precisa garantir que a rota `/sugestao` só trate requisições GET, já que o requisito não menciona POST. Pode ser uma boa prática revisar as rotas para que cada uma tenha um método bem definido.
 
-### 4. Rota `/contato` (GET) deve conter um campo de input para "assunto"
-Aqui, você precisa adicionar um campo de input no HTML da página de contato. Assim, o usuário poderá preencher esse campo, e sua rota POST conseguirá pegar essa informação.
+2. **Static files: `.gitignore` não contém a pasta `node_modules`**:
+   - É essencial que o arquivo `.gitignore` inclua a pasta `node_modules` para evitar que arquivos desnecessários sejam enviados para o repositório. Isso ajuda a manter seu projeto limpo e organizado.
 
-### 5. Rota `/contato` (POST) deve exibir o "nome", "email", "assunto" e "mensagem"
-Na sua resposta para esse endpoint, você deve incluir todos esses dados. Assim como na rota de sugestão, você pode enviar esses dados na página de agradecimento ou na resposta diretamente.
+### 🎉 Conquistas Bônus
 
-### 6. API `/api/lanches` - cada atributo deve possuir o data type correto e não ser vazio, 0 ou null
-É importante que você valide os dados que está retornando. Verifique o conteúdo do seu JSON e garanta que todos os atributos estão preenchidos corretamente. Isso ajuda a evitar que dados incorretos sejam enviados para o cliente.
+Infelizmente, não encontramos conquistas bônus desta vez, mas isso não significa que você não fez um bom trabalho! Cada linha de código que você escreveu é um passo na direção certa. Continue assim! 💪
 
-## 🎯 Conclusão
+### 🌈 Conclusão
 
-Marina, você está no caminho certo e suas habilidades estão se desenvolvendo muito bem! Cada desafio é uma oportunidade de crescer e aprender. Espero que essa análise tenha ajudado a esclarecer os pontos que precisamos melhorar. Continue praticando, experimentando e não hesite em me chamar sempre que precisar! Você consegue! 💖
+Marina, você tem uma boa estrutura e ideias sólidas. Com um pouco de atenção aos detalhes e algumas correções nos arquivos HTML e nas rotas, você certamente pode melhorar sua nota e seu projeto. Cada erro é uma oportunidade de aprendizado, e estou aqui para te ajudar nesse processo!
 
-Vamos juntos para a próxima! 🚀✨
+Siga em frente, revise esses pontos e, se precisar de mais ajuda, estou por aqui! Vamos juntos nessa jornada de aprendizado! 🚀💡
