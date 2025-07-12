@@ -1,11 +1,12 @@
 {
   "name": "wt-journey-backend-01-etapa-1-marinasdiniz",
   "version": "1.0.0",
-  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/fO8pjV07)\r # Desafio: Protótipo de Cardápio Digital - DevBurger",
+  "description": "Protótipo de Cardápio Digital - DevBurger",
   "main": "server.js",
-
   "scripts": {
-    "start": "node server_clean.js",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "servidor": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
