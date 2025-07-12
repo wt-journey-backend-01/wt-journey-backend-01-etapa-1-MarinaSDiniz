@@ -54,6 +54,11 @@ a {
     color: white;
     transition: color 0.3s ease;
 }
+
+.volta {
+    color: #333;
+}
+
 /*index.html*/
 
 /*cardapio*/

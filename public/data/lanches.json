@@ -41,7 +41,7 @@
         "nome": "Água mineral 500ml",
         "descricao": "água mineral natural",
         "preco": 3.00,
-        "categoria": "classico",
+        "categoria": "bebida",
         "ingredientes": ["água mineral"],
         "disponivel": true
     },
@@ -50,7 +50,7 @@
         "nome": "Suco natural 300ml",
         "descricao": "suco natural de laranja",
         "preco": 10.00,
-        "categoria": "classico",
+        "categoria": "bebida",
         "ingredientes": ["suco de laranja"],
         "disponivel": true
     },
@@ -59,7 +59,7 @@
         "nome": "Refrigerante 350ml",
         "descricao": "refrigerante sabor cola",
         "preco": 5.00,
-        "categoria": "classico",
+        "categoria": "bebida",
         "ingredientes": ["água gaseificada", "açúcar", "corante", "aroma"],
         "disponivel": true
     }
@@ -68,7 +68,8 @@
     { "id": 1, "nome": "classico", "descricao": "Sabores tradicionais" },
     { "id": 2, "nome": "premium", "descricao": "Ingredientes especiais" },
     { "id": 3, "nome": "vegetariano", "descricao": "Opções sem carne" },
-    { "id": 4, "nome": "frango", "descricao": "À base de frango" }
+    { "id": 4, "nome": "frango", "descricao": "À base de frango" },
+    { "id": 5, "nome": "bebida", "descricao": "Bebidas variadas" }
   ]
 }
 

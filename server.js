@@ -1,13 +1,13 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs'); // Para ler arquivos JSON
+const fs = require('fs');
 
 const app = express();
 const PORT = 3000;
 
 // Middleware para processar dados do formulário e JSON
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Adicionado para APIs JSON
+app.use(express.json());
 
 // Middleware para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,7 +35,7 @@ app.get('/contato', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'contato.html'));
 });
 
-// === ROTAS DA API (JSON) ===
+// === API ===
 
 // API: Buscar todos os lanches
 app.get('/api/lanches', (req, res) => {
@@ -43,73 +43,89 @@ app.get('/api/lanches', (req, res) => {
     res.json(dados.lanches);
 });
 
-// API: Buscar lanche por ID
-app.get('/api/lanches/:id', (req, res) => {
-    const dados = lerDadosLanches();
-    const id = parseInt(req.params.id);
-    const lanche = dados.lanches.find(l => l.id === id);
-    
-    if (!lanche) {
-        return res.status(404).json({ erro: 'Lanche não encontrado' });
-    }
-    
-    res.json(lanche);
-});
-
-// API: Buscar lanches por categoria
-app.get('/api/lanches/categoria/:categoria', (req, res) => {
-    const dados = lerDadosLanches();
-    const categoria = req.params.categoria;
-    const lanches = dados.lanches.filter(l => l.categoria === categoria);
-    
-    res.json(lanches);
-});
-
-// API: Buscar todas as categorias
-app.get('/api/categorias', (req, res) => {
-    const dados = lerDadosLanches();
-    res.json(dados.categorias);
-});
-
-// API: Buscar lanches disponíveis
-app.get('/api/lanches/disponiveis', (req, res) => {
-    const dados = lerDadosLanches();
-    const disponveis = dados.lanches.filter(l => l.disponivel === true);
-    res.json(disponveis);
-});
-
 // === ROTAS DE FORMULÁRIOS ===
 
-// Rota para processar o formulário de sugestão
+// Rota GET para sugestão com query string
+app.get('/sugestao', (req, res) => {
+    const { opcao, ingredientes } = req.query;
+    
+    if (opcao && ingredientes) {
+        const html = `
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <title>Sugestão Recebida - DevBurger</title>
+            <link rel="stylesheet" href="/css/style.css">
+        </head>
+        <body>
+        <div class = "class-404">
+            <div class = "img-404">
+                <img src="/imagens/undraw_super-thank-you_flq2.svg" alt="agradecimento">
+            </div>
+            <div class="content">
+                <h2>Obrigado pela sugestão!</h2>
+                <p><strong>Opção sugerida:</strong> ${opcao}</p>
+                <p><strong>Ingredientes:</strong> ${ingredientes}</p>
+                <a class = "volta" href="/">Voltar para a página inicial</a>
+            </div>
+        </div>
+        </body>
+        </html>`;
+        
+        res.status(200).set('Content-Type', 'text/html').send(html);
+    } else {
+        res.redirect('/');
+    }
+});
+
+// Rota POST para processar formulário de sugestão
 app.post('/sugestao', (req, res) => {
-        const { nome, opcao, ingredientes } = req.body;
-        
-        // Validação básica
-        if (!nome || !opcao || !ingredientes) {
-            return res.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
-        }
-        
-        console.log(`Sugestão recebida: Nome - ${nome}, Opção - ${opcao}, Ingredientes - ${ingredientes}`);
-        res.sendFile(path.join(__dirname, 'views', 'obrigado.html'));
-        
+    const { opcao, ingredientes } = req.body;
+    
+    if (!opcao || !ingredientes) {
+        return res.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
+    }
+    
+    console.log(`Sugestão recebida: Opção - ${opcao}, Ingredientes - ${ingredientes}`);
+    res.redirect(`/sugestao?opcao=${encodeURIComponent(opcao)}&ingredientes=${encodeURIComponent(ingredientes)}`);
 });
 
-// Rota para processar o formulário de contato
+// Rota POST para processar contato
 app.post('/contato', (req, res) => {
-        const { nome, email, mensagem } = req.body;
-        
-        if (!nome || !email || !mensagem) {
-            return res.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
-        }
-        
-        console.log(`Contato recebido: Nome - ${nome}, Email - ${email}, Mensagem - ${mensagem}`);
-        res.sendFile(path.join(__dirname, 'views', 'obrigado.html'));
-        
-});
-
-// Rota específica para 404
-app.get('/404', (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+    const { nome, email, assunto } = req.body;
+    
+    if (!nome || !email || !assunto) {
+        return res.status(400).sendFile(path.join(__dirname, 'public', '404.html'));
+    }
+    
+    console.log(`Contato recebido: Nome - ${nome}, Email - ${email}, Assunto - ${assunto}`);
+    
+    const html = `
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contato Recebido - DevBurger</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+    <div class = "class-404">
+            <div class = "img-404">
+                <img src="/imagens/undraw_super-thank-you_flq2.svg" alt="agradecimento">
+            </div>
+        <div class="content">
+            <h2>Mensagem enviada com sucesso!</h2>
+            <p><strong>Nome:</strong> ${nome}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Assunto:</strong> ${assunto}</p>
+            <a class = "volta "href="/">Voltar para a página inicial</a>
+        </div>
+    </div>
+    </body>
+    </html>`;
+    
+    res.status(200).set('Content-Type', 'text/html').send(html);
 });
 
 // Middleware para capturar rotas não encontradas
@@ -117,18 +133,7 @@ app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Middleware de tratamento de erros globais
-app.use((err, req, res, next) => {
-    console.error('Erro interno do servidor:', err);
-    res.status(500).sendFile(path.join(__dirname, 'public', '404.html'));
-});
-
 app.listen(PORT, () => {
     console.log(`Servidor da DevBurger rodando em localhost:${PORT}`);
-    console.log(`API disponível em:`);
-    console.log(`- GET /api/lanches - Todos os lanches`);
-    console.log(`- GET /api/lanches/:id - Lanche específico`);
-    console.log(`- GET /api/lanches/categoria/:categoria - Por categoria`);
-    console.log(`- GET /api/categorias - Todas as categorias`);
-    console.log(`- GET /api/lanches/disponiveis - Apenas disponíveis`);
+    console.log(`API disponível: GET /api/lanches`);
 });
